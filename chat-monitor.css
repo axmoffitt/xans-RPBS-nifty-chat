@@ -26,8 +26,13 @@ div.scrollable-area div.simplebar-track {
 .chat-input input[type="password"],
 .chat-input input[type="search"],
 .chat-input {
-  font-size: 2.4rem !important;
+    font-size: 1.4rem !important;
 }
+
+.chat-input textarea {
+  height: 45px !important;
+}
+
 
 /* the container of messages */
 .chat-scrollable-area__message-container {
@@ -54,6 +59,7 @@ div.scrollable-area div.simplebar-track {
   padding: 3px 6px !important;
 /* border between messages to improve readability */
   border-bottom: #444 solid 1px !important;
+  font-size: 14px !important;
 }
 /* all chat messages, including those embedded in notices */
 .chat-line__message,
@@ -62,8 +68,8 @@ div.scrollable-area div.simplebar-track {
 /* Sub, Gift-Sub and Channel Point Redeem notices */
 .user-notice-line {
 /* larger text size improve readability */
-  font-size: 32px !important;
-  line-height: 35px !important;
+  font-size: 14px !important;
+  line-height: 16px !important;
 }
 /* remove hover highlighting that's part of threads */
 .chat-line__message:focus-within .chat-line__message-highlight,
@@ -98,7 +104,7 @@ div.scrollable-area div.simplebar-track {
 /* usernames (incl. localised) */
 .chat-author__display-name,
 .chat-author__intl-login {
-  color: green !important;
+  color: #00C000 !important;
   font-weight: 700;
 }
 
@@ -170,14 +176,14 @@ img.chat-image.chat-line__message--emote {
 }
 /* title */
 .chat-line__message .tw-border-radius-medium.tw-elevation-1 .chat-card__title p {
-  font-size: 32px !important;
-  line-height: 35px !important;
+  font-size: 13px !important;
+  line-height: 15px !important;
   color: white;
 }
 /* author */
 .chat-line__message .tw-border-radius-medium.tw-elevation-1 .chat-card__title + div p {
-  font-size: 32px !important;
-  line-height: 35px !important;
+  font-size: 13px !important;
+  line-height: 15px !important;
   color: #bbb !important;
 }
 
@@ -207,8 +213,8 @@ img.chat-image.chat-line__message--emote {
 .user-notice-line div.tw-mg-l-05 > p,
 /* converted subs have yet another p element that breaks it yet again */
 .user-notice-line div.tw-mg-l-05 > p p.tw-c-text-link {
-  font-size: 32px !important;
-  line-height: 35px !important;
+  font-size: 11px !important;
+  line-height: 13px !important;
 }
 /* the message attached to the sub notice */
 .user-notice-line div.tw-mg-t-05 {
@@ -232,7 +238,7 @@ div.tw-c-background-alt {
   position: absolute;
   right: 5px;
   top: 5px;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.5);
   cursor: pointer;
   z-index: 50;
 }
