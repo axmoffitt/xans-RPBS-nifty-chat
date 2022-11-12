@@ -3,9 +3,8 @@
 // @namespace      https://roadhog123.co.uk/
 // @description    reformats twitch chat for display on a chat monitor
 // @match          https://www.twitch.tv/popout/*/chat?display*
+// @match          https://www.twitch.tv/*?display*
 // @version        0.307-RPBS01-VS01
-// @updateURL      https://raw.githubusercontent.com/vorlonscout/significantly-less-nifty-chat/rustproof-bee-shed/chat-monitor.user.js
-// @downloadURL    https://raw.githubusercontent.com/vorlonscout/significantly-less-nifty-chat/rustproof-bee-shed/chat-monitor.user.js
 // @require        https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js
 // @require        https://gist.github.com/raw/2625891/waitForKeyElements.js
 // @grant          GM_getResourceText
@@ -14,7 +13,7 @@
 // @grant          GM_getValue
 // @grant          GM_setValue
 // @grant          GM_log
-// @resource style https://raw.githubusercontent.com/vorlonscout/significantly-less-nifty-chat/rustproof-bee-shed/chat-monitor.css
+// @resource style https://raw.githubusercontent.com/axmoffitt/xans-RPBS-nifty-chat/master/chat_monitor.css
 // @resource material-icons https://fonts.googleapis.com/icon?family=Material+Icons
 // ==/UserScript==
 
@@ -211,7 +210,7 @@ function generateCss() {
 function generateUsernameHighlightingCss() {
   var generatedCss = "";
   //Load config options, Check if contains data
-  var usernamesToHighlight = GM_config.get("UsernamesToHighlight");
+  var usernamesToHighlight = GM_config.get("UsernamesToHighlight")
   var usernameHighlightColor = GM_config.get("UsernameHighlightingColor");
   if (usernamesToHighlight && usernameHighlightColor) {
     //Split into array on commas
@@ -243,8 +242,8 @@ function generateKeywordHighlightingCss() {
     //Adds rule for each username. This could just add one rule, and save a bit of space, but I think this works just as well.
     for (var i = 0; i < keywordList.length; i++) {
       //Add css to variable
-      generatedCss += '.chat-line__message[data-message*="' + keywordList[i] + '"] {\n';
-      generatedCss += "\tbackground-color: " + keywordHighlightBackgroundColor + " !important;\n";
+      generatedCss += '.chat-line__message[data-message*="' + keywordList[i] + '"] {';
+      generatedCss += "\n\tbackground-color: " + keywordHighlightBackgroundColor + " !important;\n";
       generatedCss += "}\n";
     }
   }
@@ -399,7 +398,7 @@ var materialIcons = GM_getResourceText("material-icons");
 GM_addStyle(materialIcons);
 
 function getImageLink(url) {
-  let match = /.*\.(?:jpe?g|png|gif)(?:\?.*)?$/gim.exec(url);
+  let match = /.*\.(?:jpg|jpeg|png|gif)(?:\?.*)?$/gim.exec(url);
   return ((match) ? match[0] : "").replace("media.giphy.com", "media1.giphy.com");
 }
 
